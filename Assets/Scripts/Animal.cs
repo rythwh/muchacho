@@ -6,12 +6,12 @@ using Random = UnityEngine.Random;
 public class Animal : MonoBehaviour
 {
     private const int ForceMultiplier = 500;
-    
+
     private Image _image;
     private Rigidbody2D _rigidbody;
     private Vector3 _position;
     [SerializeField] private Button button;
-    
+
     public bool IsGood { get; private set; }
 
     public AnimalType Type { get; private set; } = AnimalType.None;
@@ -29,7 +29,7 @@ public class Animal : MonoBehaviour
         Horse = 6,
         Worm = 7
     }
-    
+
     public readonly HashSet<AnimalType> GoodAnimals = new()
     {
         AnimalType.Bear,
@@ -37,7 +37,7 @@ public class Animal : MonoBehaviour
         AnimalType.Doe,
         AnimalType.Hare
     };
-    
+
     public readonly HashSet<AnimalType> BadAnimals = new()
     {
         AnimalType.Fish,
@@ -79,13 +79,19 @@ public class Animal : MonoBehaviour
             Reset();
         }
     }
-    
+
     private void Shoot()
     {
         var force = new Vector2(1.5f, 2.5f) * (ForceMultiplier * Random.Range(1f, 2f));
         _rigidbody.AddForce(force, ForceMode2D.Impulse);
     }
-    
+
+    private void Shoot(Vector2 direction)
+    {
+        var force = direction.normalized * (ForceMultiplier * Random.Range(1f, 2f));
+        _rigidbody.AddForce(force, ForceMode2D.Impulse);
+    }
+
     private void Reset()
     {
         transform.position = _position;
@@ -93,5 +99,30 @@ public class Animal : MonoBehaviour
         _rigidbody.linearDamping = 0.05f;
         _rigidbody.gravityScale = 250f;
         Shoot();
+    }
+
+    public void SpawnFromBottomAndShoot(RectTransform canvasRect)
+    {
+        Vector2 canvasSize = canvasRect.sizeDelta;
+
+        // Random X along bottom
+        var spawnX = Random.Range(0f, canvasSize.x);
+        var spawnY = -100f; // Just below bottom edge
+
+        var spawnPos = new Vector2(spawnX, spawnY);
+        _position = spawnPos;
+
+        var rect = GetComponent<RectTransform>();
+        rect.anchoredPosition = spawnPos;
+
+        // Direction toward center of canvas
+        var center = canvasSize / 2f;
+        var direction = (center - spawnPos).normalized;
+
+        // Slight spread for variety
+        var angleOffset = Random.Range(-15f, 15f);
+        direction = Quaternion.Euler(0, 0, angleOffset) * direction;
+
+        Shoot(direction);
     }
 }

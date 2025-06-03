@@ -10,6 +10,12 @@ public class QRSpawner : MonoBehaviour
     
     private SpriteRenderer _spriteRenderer;
     private List<Animal> _animals = new();
+    private RectTransform _canvasRect;
+
+    private void Awake()
+    {
+        _canvasRect = GetComponentInParent<RectTransform>();
+    }
 
     void Update()
     {
@@ -24,6 +30,7 @@ public class QRSpawner : MonoBehaviour
         var target = Random.Range(0, 2) == 0 ? animal.GoodAnimals : animal.BadAnimals ;
         var type = target.GetRandomElement();
         animal.Initialize(type, SpriteFromType(type));
+        animal.SpawnFromBottomAndShoot(_canvasRect);
     }
 
     // hihi horrible code
