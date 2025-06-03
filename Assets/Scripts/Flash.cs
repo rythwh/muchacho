@@ -16,6 +16,11 @@ public class Flash : MonoBehaviour
         Events.Flash += OnFlash;
     }
 
+    private void OnDestroy()
+    {
+        Events.Flash -= OnFlash;
+    }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.L))

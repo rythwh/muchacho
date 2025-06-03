@@ -105,8 +105,11 @@ public class Animal : MonoBehaviour
         {
             if (IsGood)
             {
-                // Events.AddScore(-1);
-                Events.OnLifeLost();
+                Events.OnGoodAnimalDied?.Invoke();
+            }
+            else
+            {
+                Events.OnBadAnimalDied?.Invoke();
             }
             
             Destroy(gameObject);

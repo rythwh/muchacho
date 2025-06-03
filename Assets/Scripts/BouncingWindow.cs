@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BouncingWindow : MonoBehaviour
 {
@@ -15,6 +17,11 @@ public class BouncingWindow : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
 
         Events.SetSpeedMultiplier += SetSpeedMultiplier;
+    }
+
+    private void OnDestroy()
+    {
+        Events.SetSpeedMultiplier -= SetSpeedMultiplier;
     }
 
     private void SetSpeedMultiplier(float speedMultiplier)

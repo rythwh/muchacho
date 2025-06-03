@@ -13,6 +13,11 @@ public class Score : MonoBehaviour
         AddScore(0);
     }
 
+    private void OnDestroy()
+    {
+        Events.AddScore -= AddScore;
+    }
+
     private void AddScore(int amount)
     {
         score += amount;

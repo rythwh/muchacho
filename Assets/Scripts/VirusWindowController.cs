@@ -16,6 +16,11 @@ public class VirusWindowController : MonoBehaviour
         Events.OnShotBadAnimal += OnShotBadAnimal;
     }
 
+    private void OnDestroy()
+    {
+        Events.OnShotBadAnimal -= OnShotBadAnimal;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.N))
