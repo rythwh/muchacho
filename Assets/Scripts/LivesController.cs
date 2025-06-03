@@ -16,7 +16,7 @@ public class LivesController : MonoBehaviour
         {
             Instantiate(livesPrefab, livesContainer, false);
         }
-        Events.OnLifeLost += OnLifeLost;
+        Events.OnGoodAnimalDied += OnLifeLost;
     }
 
     private void OnDestroy()
@@ -49,7 +49,7 @@ public class LivesController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            Events.OnLifeLost?.Invoke();
+            Events.OnGoodAnimalDied?.Invoke();
         }
     }
 }

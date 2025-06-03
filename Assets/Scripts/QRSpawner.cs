@@ -12,18 +12,28 @@ public class QRSpawner : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private List<Animal> _animals = new();
     private RectTransform _canvasRect;
-    private Coroutine _intervalRoutine;
+    private const float InitialInterval = 3f;
+    private float _interval;
 
     private void Awake()
     {
         _canvasRect = GetComponentInParent<RectTransform>();
-        _intervalRoutine = StartCoroutine(CallEveryInterval());
+        _interval = InitialInterval;
+        StartCoroutine(SpawnAnimalCoroutine());
+        Events.OnGoodAnimalDied += ResetInterval;
+        Events.OnBadAnimalDied += SpeedUp;
+        Events.AddScore += SpeedUp;
     }
 
-    void Update()
+    private void SpeedUp() => SpeedUp(0);
+    private void SpeedUp(int _)
     {
-        if (Input.GetKeyUp(KeyCode.Space)) 
-            SpawnAnimal();
+        _interval *= 0.8f;
+    }
+
+    private void ResetInterval()
+    {
+        _interval = InitialInterval;   
     }
 
     private void SpawnAnimal()
@@ -49,11 +59,12 @@ public class QRSpawner : MonoBehaviour
         throw new Exception($"Couldn't find sprite for type {typeString}");
     }
     
-    private IEnumerator CallEveryInterval()
+    private IEnumerator SpawnAnimalCoroutine()
     {
         while (true)
         {
             SpawnAnimal();
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(_interval);
         }
-    }}
+    }
+}
