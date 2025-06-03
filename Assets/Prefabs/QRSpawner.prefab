@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a857e80996d9e4d75a2b4065b6021356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalPrefab: {fileID: 246817072988247463, guid: 4805823d8b3e54016931a4493570e646, type: 3}
+  animalPrefab: {fileID: 7936940832344672172, guid: 4805823d8b3e54016931a4493570e646, type: 3}
   goodSprites:
   - {fileID: 3232954995629961432, guid: e585dd184b6a64f19a7c2ed03aeabb40, type: 3}
   - {fileID: 4693792977596894205, guid: 3b5e2479eb24642bb90469a26ae89f61, type: 3}

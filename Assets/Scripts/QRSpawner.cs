@@ -16,6 +16,7 @@ public class QRSpawner : MonoBehaviour
 
     void Update()
     {
+        return;
         if (Input.anyKeyDown)
         {
             // instantiate animal prefab

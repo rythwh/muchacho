@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7936940832344672172}
   - component: {fileID: 8655211094641322879}
   - component: {fileID: 7176022441077943898}
+  - component: {fileID: 3221664440073894057}
+  - component: {fileID: 9181872102935892273}
   m_Layer: 5
   m_Name: Animal
   m_TagString: Untagged
@@ -50,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708b53e9e040c4bc69e1e004049179d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 0}
 --- !u!222 &8655211094641322879
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -88,3 +91,42 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!50 &3221664440073894057
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246817072988247463}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0.05
+  m_AngularDamping: 0.05
+  m_GravityScale: 250
+  m_Material: {fileID: 6200000, guid: 490d1847abcdd48ebb6d82ce4de2a0a6, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &9181872102935892273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246817072988247463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28ca32b0571c4542b0ecf17bf7bca4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
