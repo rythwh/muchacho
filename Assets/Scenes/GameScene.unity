@@ -235,9 +235,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraFocusCrosshair
       objectReference: {fileID: 0}
+    - target: {fileID: 6368922466912977286, guid: d9f9d1c8a5128664b8d24a289a89c04d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7043956629475099380, guid: d9f9d1c8a5128664b8d24a289a89c04d, type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7557143624030307962, guid: d9f9d1c8a5128664b8d24a289a89c04d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7557143624030307962, guid: d9f9d1c8a5128664b8d24a289a89c04d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8275171524991256760, guid: d9f9d1c8a5128664b8d24a289a89c04d, type: 3}
@@ -296,7 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -399,7 +411,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &307235670 stripped
+--- !u!1 &156909736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 156909738}
+  - component: {fileID: 156909737}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &156909737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156909736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5c15bb9edbf4eaa95a702ce95b56e4, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  debugRaycast: 1
+--- !u!4 &156909738
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156909736}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 964.68604, y: 705.8012, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &307235669
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 307235670}
+  - component: {fileID: 307235672}
+  - component: {fileID: 307235671}
+  m_Layer: 5
+  m_Name: Flash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &307235670
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8926144288853288314, guid: eb787723e708141f48d5e5e027fddc07, type: 3}
   m_PrefabInstance: {fileID: 7968032508821982442}
@@ -659,7 +734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -801,7 +876,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 246817072988247463, guid: 4805823d8b3e54016931a4493570e646, type: 3}
       propertyPath: m_Name
-      value: Animal
+      value: DebugAnimal
+      objectReference: {fileID: 0}
+    - target: {fileID: 246817072988247463, guid: 4805823d8b3e54016931a4493570e646, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2877663219203862622, guid: 4805823d8b3e54016931a4493570e646, type: 3}
       propertyPath: m_Pivot.x
@@ -829,11 +908,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2877663219203862622, guid: 4805823d8b3e54016931a4493570e646, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 256
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2877663219203862622, guid: 4805823d8b3e54016931a4493570e646, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 256
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2877663219203862622, guid: 4805823d8b3e54016931a4493570e646, type: 3}
       propertyPath: m_LocalPosition.x
@@ -865,11 +944,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2877663219203862622, guid: 4805823d8b3e54016931a4493570e646, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -805
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2877663219203862622, guid: 4805823d8b3e54016931a4493570e646, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -482
+      value: 184
       objectReference: {fileID: 0}
     - target: {fileID: 2877663219203862622, guid: 4805823d8b3e54016931a4493570e646, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -905,6 +984,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: QRSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 1025060148578392343, guid: 76eb38c51316e45f8ba344ec6e30e699, type: 3}
+      propertyPath: 'sprites.Array.data[7]'
+      value:
+      objectReference: {fileID: 2865906195106238846, guid: 9a54850ae43144c579604c9601825f2a, type: 3}
     - target: {fileID: 2520101269734431999, guid: 76eb38c51316e45f8ba344ec6e30e699, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -978,8 +1061,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0be7ce1e063c24578b91da041140bad5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   scoreText: {fileID: 0}
 --- !u!1001 &2137618954065068975
 PrefabInstance:
@@ -1315,3 +1398,4 @@ SceneRoots:
   - {fileID: 32159814}
   - {fileID: 1399260807}
   - {fileID: 100095392}
+  - {fileID: 156909738}
