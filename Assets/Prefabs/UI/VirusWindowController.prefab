@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5027426466524116077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5817784553059741753}
+  - component: {fileID: 5567677813003139809}
+  - component: {fileID: 7821275476038587787}
+  m_Layer: 5
+  m_Name: VirusWindowController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5817784553059741753
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5027426466524116077}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!222 &5567677813003139809
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5027426466524116077}
+  m_CullTransparentMesh: 1
+--- !u!114 &7821275476038587787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5027426466524116077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c46a62eced4a4db825a7ca2ee8f6fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasRt: {fileID: 0}
+  virusWindowPrefab: {fileID: 7673108050174552247, guid: 91e024dc05c014b45bb0fb9ce32050ca, type: 3}
+  virusSprites:
+  - {fileID: 2969514714283920254, guid: 2f1f3816c6b2042d0afaaff1d0f1dd6e, type: 3}
+  - {fileID: 1138204411396870743, guid: 1e503db20c57e40efb7312013564e7b5, type: 3}
+  - {fileID: -7503698964060047574, guid: 5f039b31a393a4d8585a27c383c0db3b, type: 3}
+  - {fileID: -5785208501100047508, guid: 19c020c955a11474cb6932ab709376fc, type: 3}
+  - {fileID: 4047312526738855131, guid: 5b8848b074285499ba141c43060813da, type: 3}
+  bounceArea: {fileID: 0}
