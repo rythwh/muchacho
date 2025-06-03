@@ -1,25 +1,72 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Animal : MonoBehaviour
 {
-    [HideInInspector]
-    public Image image;
     private const int ForceMultiplier = 500;
     
+    private Image _image;
     private Rigidbody2D _rigidbody;
     private Vector3 _position;
-    private Button _button;
+    [SerializeField] private Button button;
     
-    private void Awake()
+    public bool IsGood { get; private set; }
+
+    public AnimalType Type { get; private set; } = AnimalType.None;
+
+    private UnityEngine.Events.UnityAction _scanAction;
+
+    public enum AnimalType
     {
-        image = GetComponent<Image>();
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _position = transform.position;
-        _button = GetComponentInChildren<Button>();
-        Reset();
+        None = 0,
+        Bear = 1,
+        Boar = 2,
+        Doe = 3,
+        Fish = 4,
+        Hare = 5,
+        Horse = 6,
+        Worm = 7
     }
     
+    public readonly HashSet<AnimalType> GoodAnimals = new()
+    {
+        AnimalType.Bear,
+        AnimalType.Boar,
+        AnimalType.Doe,
+        AnimalType.Hare
+    };
+    
+    public readonly HashSet<AnimalType> BadAnimals = new()
+    {
+        AnimalType.Fish,
+        AnimalType.Horse,
+        AnimalType.Worm
+    };
+
+    public void Initialize(AnimalType type, Sprite sprite)
+    {
+        Type = type;
+        IsGood = GoodAnimals.Contains(type);
+        _image.sprite = sprite;
+    }
+
+    private void Awake()
+    {
+        _scanAction = () => GameManager.Instance.ScanAnimal(this);
+        button.onClick?.AddListener(_scanAction);
+        _image = GetComponent<Image>();
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _position = transform.position;
+        // Reset();
+    }
+
+    private void OnDestroy()
+    {
+        button.onClick?.RemoveListener(_scanAction);
+    }
+
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.S))
