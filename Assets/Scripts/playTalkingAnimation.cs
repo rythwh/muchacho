@@ -15,7 +15,7 @@ public class PlayTalkingAnimation : MonoBehaviour
     
     private AudioSource audioSource;
     
-    void Start ()
+    void Awake ()
     {
         audioSource = GetComponent<AudioSource>();
         animator = GetComponentInChildren<Animator>();
@@ -23,16 +23,19 @@ public class PlayTalkingAnimation : MonoBehaviour
 
     public void PlayDeathClip()
     {
+        animator.SetTrigger("PlayTalk");
         StartCoroutine(PlayClip(startDeathTime, endDeathTime, courseAudioClip));
     }
     
     public void PlayFelizNavidadClip()
     {
+        animator.SetTrigger("PlayTalk");
         StartCoroutine(PlayClip(startFelizNavidadTime, endFelizNavidadTime, felizNavidadAudioClip));
     }
     
     public void PlayIntroClip()
     {
+        animator.SetTrigger("PlayTalk");
         StartCoroutine(PlayClip(introStartTime, introEndTime, longCourseAudioClip));
     }
     
@@ -40,7 +43,6 @@ public class PlayTalkingAnimation : MonoBehaviour
     {
         if (audioClip != null)
         {
-            animator.SetTrigger("PlayTalk");
             audioSource.clip = audioClip;
             audioSource.time = startTime;
             audioSource.Play();
