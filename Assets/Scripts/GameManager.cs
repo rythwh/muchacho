@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     [SerializeField] private bool debugRaycast = false;
+    [SerializeField] private GameObject endScreen;
 
     private void Awake()
     {
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject); // optional: persist across scenes
+        DontDestroyOnLoad(endScreen);
+        Events.OnGameOver += ShowEndScreen;
     }
 
     public void ScanAnimal(Animal animal)
@@ -44,7 +47,7 @@ public class GameManager : MonoBehaviour
 
         if (!debugRaycast)
             return;
-        
+
         if (Input.GetMouseButtonDown(0))
         {
             PointerEventData pointerData = new PointerEventData(EventSystem.current)
@@ -63,5 +66,12 @@ public class GameManager : MonoBehaviour
             if (results.Count == 0)
                 Debug.Log("Raycast hit nothing.");
         }
+    }
+
+    private void ShowEndScreen()
+    {
+        endScreen.SetActive(true);
+        //Time.timeScale = 0f; // Pause the game
+        Debug.Log("Game Over! Showing end screen.");
     }
 }
