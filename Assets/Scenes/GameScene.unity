@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 473419708}
   - component: {fileID: 473419707}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -546,6 +546,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5158639916359554195, guid: 97902079772b2481ba7ec985a9e7c108, type: 3}
+      propertyPath: livesPrefab
+      value: 
+      objectReference: {fileID: 7848030127378854118, guid: dbc0a9aac15f54ef3b730515a9b8483c, type: 3}
+    - target: {fileID: 5158639916359554195, guid: 97902079772b2481ba7ec985a9e7c108, type: 3}
+      propertyPath: livesContainer
+      value: 
+      objectReference: {fileID: 1599245092}
     - target: {fileID: 5876940276116069058, guid: 97902079772b2481ba7ec985a9e7c108, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -691,7 +699,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6625876207744766001, guid: 97902079772b2481ba7ec985a9e7c108, type: 3}
+    - {fileID: 8411441654822357761, guid: 97902079772b2481ba7ec985a9e7c108, type: 3}
+    - {fileID: 3766360643770043192, guid: 97902079772b2481ba7ec985a9e7c108, type: 3}
+    - {fileID: 3649463861452723828, guid: 97902079772b2481ba7ec985a9e7c108, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97902079772b2481ba7ec985a9e7c108, type: 3}
