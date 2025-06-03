@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ public class LivesController : MonoBehaviour
     private int currentLives = maxLives;
     [SerializeField] private GameObject livesPrefab;
     [SerializeField] private Transform livesContainer;
+    private const int iframeSeconds = 2;
 
     void Start()
     {
@@ -24,8 +26,12 @@ public class LivesController : MonoBehaviour
         Events.OnGoodAnimalDied -= OnLifeLost;
     }
 
+    bool _hasIframes = false;
     private void OnLifeLost()
     {
+        if (_hasIframes)
+            return;
+        
         currentLives -= 1;
         Events.Flash?.Invoke(Color.red);
 
@@ -44,6 +50,15 @@ public class LivesController : MonoBehaviour
             Debug.Log("Game Over");
             Events.OnGameOver?.Invoke();
         }
+
+        StartCoroutine(ActivateIFrames());
+    }
+
+    private IEnumerator ActivateIFrames()
+    {
+        _hasIframes = true;
+        yield return new WaitForSeconds(iframeSeconds);
+        _hasIframes = false;
     }
 
     private void Update()
