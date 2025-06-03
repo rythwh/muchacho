@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -96,5 +97,19 @@ public class Animal : MonoBehaviour
         direction = Quaternion.Euler(0, 0, angleOffset) * direction;
 
         Shoot(direction);
+    }
+
+    public void Update()
+    {
+        if (transform.position.y < -100)
+        {
+            if (IsGood)
+            {
+                // Events.AddScore(-1);
+                Events.OnLifeLost();
+            }
+            
+            Destroy(gameObject);
+        }
     }
 }
