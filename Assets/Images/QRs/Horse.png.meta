@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 1b83843c5a9295d439630f22c7be8ed5
+guid: f52d28abafdf646ebb011c9aaf0d3a39
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1424211729268900724
-    second: camerafocus_0
-  - first:
-      213: -4421495246406236087
-    second: camerafocus_1
-  - first:
-      213: 3264340528701898030
-    second: camerafocus_2
-  - first:
-      213: -708665257427474636
-    second: camerafocus_3
-  - first:
-      213: 7966546748390811424
-    second: camerafocus_4
+      213: 7672759098259192623
+    second: Horse_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,39 +109,43 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: camerafocus_0
+      name: Horse_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 13
-        width: 188
-        height: 174
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 13, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c8c7bff5afe2c3ce0800000000000000
-      internalID: -1424211729268900724
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: camerafocus_1
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 140
-        width: 47
-        height: 48
+        x: 64
+        y: 78
+        width: 894
+        height: 880
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,74 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 948c0eddf71b3a2c0800000000000000
-      internalID: -4421495246406236087
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: camerafocus_2
-      rect:
-        serializedVersion: 2
-        x: 68
-        y: 69
-        width: 63
-        height: 63
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e2dff276a644d4d20800000000000000
-      internalID: 3264340528701898030
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: camerafocus_3
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 13
-        width: 46
-        height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 437ef5af3b05a26f0800000000000000
-      internalID: -708665257427474636
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: camerafocus_4
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 13
-        width: 47
-        height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 027a0602f0cde8e60800000000000000
-      internalID: 7966546748390811424
+      spriteID: f2bb2e27fbd1b7a60800000000000000
+      internalID: 7672759098259192623
       vertices: []
       indices: 
       edges: []
@@ -238,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7a16ba32ad3e31c458e92bb491a8f75b
+    spriteID: 0624e75a356504083a24f16414953673
     internalID: 0
     vertices: []
     indices: 
@@ -248,11 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      camerafocus_0: -1424211729268900724
-      camerafocus_1: -4421495246406236087
-      camerafocus_2: 3264340528701898030
-      camerafocus_3: -708665257427474636
-      camerafocus_4: 7966546748390811424
+      Horse_0: 7672759098259192623
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
