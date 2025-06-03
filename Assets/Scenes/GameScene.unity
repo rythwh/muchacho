@@ -394,13 +394,14 @@ GameObject:
   - component: {fileID: 307235670}
   - component: {fileID: 307235672}
   - component: {fileID: 307235671}
+  - component: {fileID: 307235673}
   m_Layer: 5
   m_Name: Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &307235670
 RectTransform:
   m_ObjectHideFlags: 0
@@ -433,7 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -458,6 +459,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 307235669}
   m_CullTransparentMesh: 1
+--- !u!114 &307235673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307235669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f900215aab2264957884f240564a7ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashStartDuration: 0.1
+  flashEndDuration: 0.5
+  image: {fileID: 307235671}
 --- !u!224 &330839319 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5817784553059741753, guid: 207742dd34ea1440c96ff3674ca90539, type: 3}
