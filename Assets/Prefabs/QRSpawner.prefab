@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &441807761419014903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2520101269734431999}
+  - component: {fileID: 1025060148578392343}
+  m_Layer: 0
+  m_Name: QRSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2520101269734431999
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441807761419014903}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.22334, y: 0.0259, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1025060148578392343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441807761419014903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a857e80996d9e4d75a2b4065b6021356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalPrefab: {fileID: 7936940832344672172, guid: 4805823d8b3e54016931a4493570e646, type: 3}
+  goodSprites:
+  - {fileID: 3232954995629961432, guid: e585dd184b6a64f19a7c2ed03aeabb40, type: 3}
+  - {fileID: 4693792977596894205, guid: 3b5e2479eb24642bb90469a26ae89f61, type: 3}
+  - {fileID: -1361063226945943413, guid: 9291185b42c4b4107bead9698cf19e43, type: 3}
+  - {fileID: -2406096084846309900, guid: 92a0cfde969d241a38bc2b9f92d26c80, type: 3}
+  badSprites:
+  - {fileID: -1915776564401465818, guid: 0dee039c3f0b142d28b23b1e161f90cc, type: 3}
+  - {fileID: 7672759098259192623, guid: f52d28abafdf646ebb011c9aaf0d3a39, type: 3}
+  - {fileID: -3578019587575532720, guid: d2871c999447844c685b0f3ed936735e, type: 3}
+  - {fileID: 2865906195106238846, guid: 9a54850ae43144c579604c9601825f2a, type: 3}
