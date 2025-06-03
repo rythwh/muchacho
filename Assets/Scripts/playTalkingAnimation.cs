@@ -3,15 +3,60 @@ using UnityEngine;
 public class PlayTalkingAnimation : MonoBehaviour
 {
     private Animator animator;
+    public AudioClip courseAudioClip;
+    public AudioClip longCourseAudioClip;
+    public AudioClip felizNavidadAudioClip;
+    public float startDeathTime = 13f;
+    public float endDeathTime = 16.5f;
+    public float startFelizNavidadTime = 105f;
+    public float endFelizNavidadTime = 108f;
+    public float introStartTime = 0f;
+    public float introEndTime = 8f;
     
-    void Awake ()
+    private AudioSource audioSource;
+    
+    void Start ()
     {
+        audioSource = GetComponent<AudioSource>();
         animator = GetComponentInChildren<Animator>();
     }
+
+    public void PlayDeathClip()
+    {
+        StartCoroutine(PlayClip(startDeathTime, endDeathTime, courseAudioClip));
+    }
+    
+    public void PlayFelizNavidadClip()
+    {
+        StartCoroutine(PlayClip(startFelizNavidadTime, endFelizNavidadTime, felizNavidadAudioClip));
+    }
+    
+    public void PlayIntroClip()
+    {
+        StartCoroutine(PlayClip(introStartTime, introEndTime, longCourseAudioClip));
+    }
+    
+    private System.Collections.IEnumerator PlayClip(float startTime, float endTime, AudioClip audioClip = null)
+    {
+        if (audioClip != null)
+        {
+            animator.SetTrigger("PlayTalk");
+            audioSource.clip = audioClip;
+            audioSource.time = startTime;
+            audioSource.Play();
+            
+            yield return new WaitForSeconds(endTime - startTime);
+            
+            audioSource.Stop();
+            animator.SetTrigger("StopTalk");
+        }
+    }
+    
 
     public void PlayAnimation()
     {
         animator.SetTrigger("PlayTalk");
+        PlayDeathClip();
     }
     
     public void StopAnimation()
