@@ -1,18 +1,21 @@
 using UnityEngine;
 
-public class playTalkingAnimation : MonoBehaviour
+public class PlayTalkingAnimation : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private Animator animator;
+    
+    void Awake ()
     {
-        
+        animator = GetComponentInChildren<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayAnimation()
     {
-        
+        animator.SetTrigger("PlayTalk");
     }
     
-    
+    public void StopAnimation()
+    {
+        animator.SetTrigger("StopTalk");
+    }
 }
