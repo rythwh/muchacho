@@ -6,9 +6,12 @@ public class BouncingWindow : MonoBehaviour
     private RectTransform rectTransform;
     private RectTransform bounceAreaRect;
 
+    private int[] directions = { -1, 1 };
+    private float randomVelocity => Random.Range(100f, 300f) * directions[Random.Range(0, directions.Length)];
+
     void Start()
     {
-        velocity = new Vector2(Random.Range(100f, 300f), Random.Range(100f, 300f)); // pixels per second
+        velocity = new Vector2(randomVelocity, randomVelocity); // pixels per second
         rectTransform = GetComponent<RectTransform>();
 
         Events.SetSpeedMultiplier += SetSpeedMultiplier;
