@@ -1,19 +1,50 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LivesController : MonoBehaviour
 {
-    [SerializeField] private int lives = 5;
+    private const int maxLives = 5;
+    private int currentLives = maxLives;
     [SerializeField] private GameObject livesPrefab;
     [SerializeField] private Transform livesContainer;
 
     void Start()
     {
+        for (int i = 0; i < maxLives; i++)
+        {
+            Instantiate(livesPrefab, livesContainer, false);
+        }
         Events.OnLifeLost += OnLifeLost;
     }
 
     private void OnLifeLost()
     {
+        currentLives -= 1;
 
+        Image child = livesContainer.GetChild(0).GetComponent<Image>();
+
+        if (!child)
+        {
+            return;
+        }
+
+        child.color = Color.red;
+        child.transform.SetAsLastSibling();
+
+        if (currentLives <= 0)
+        {
+            Debug.Log("Game Over");
+            Events.OnGameOver?.Invoke();
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            Events.OnLifeLost?.Invoke();
+        }
     }
 }
