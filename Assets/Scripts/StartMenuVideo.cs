@@ -12,6 +12,6 @@ public class StartMenuVideo : MonoBehaviour
 
     void OnVideoEnd(VideoPlayer vp)
     {
-        vp.enabled = false;
+        gameObject.SetActive(false);
     }
 }
