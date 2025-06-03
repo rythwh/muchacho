@@ -88,6 +88,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f900215aab2264957884f240564a7ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashStartDuration: 0.1
+  flashStartDuration: 0
   flashEndDuration: 0.5
   image: {fileID: 2642557312156917381}

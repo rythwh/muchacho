@@ -9,6 +9,8 @@ public class Flash : MonoBehaviour
     [SerializeField] private float flashEndDuration = 1f;
     [SerializeField] private Image image;
 
+    private Color flashColor = new Color(1f, 1f, 1f, 0.9f);
+
     public void Start()
     {
         image.color = Color.clear;
@@ -31,24 +33,25 @@ public class Flash : MonoBehaviour
         }
 
         // Flash to white instantly
-        image.color = new Color(1, 1, 1, 1); // white, fully opaque
+        image.color = flashColor;
+        Events.OnFlashMax?.Invoke();
 
         // Short delay for "flash in"
         await Task.Delay((int)(flashStartDuration * 1000));
 
         // Fade out over time
         float elapsed = 0f;
-        Color startColor = Color.white;
+        Color startColor = flashColor;
 
         while (elapsed < flashEndDuration)
         {
             await Task.Yield(); // Wait until the next frame
             elapsed += Time.deltaTime;
             float t = elapsed / flashEndDuration;
-            image.color = Color.Lerp(startColor, new Color(1, 1, 1, 0), t);
+            image.color = Color.Lerp(startColor, Color.clear, t);
         }
 
         // Ensure it's fully transparent at the end
-        image.color = new Color(1, 1, 1, 0);
+        image.color = Color.clear;
     }
 }
