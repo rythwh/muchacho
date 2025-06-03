@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Destroying animal {animal.Type}!");
         if (animal.IsGood)
         {
-            // TODO: score go up
+            Events.AddScore(1);
         }
         else
         {
@@ -39,9 +40,14 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        if (Input.GetMouseButtonUp(0))
+        {
+            Events.Flash?.Invoke();
+        }
+
         if (!debugRaycast)
             return;
-        
+
         if (Input.GetMouseButtonDown(0))
         {
             PointerEventData pointerData = new PointerEventData(EventSystem.current)
@@ -61,7 +67,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Raycast hit nothing.");
         }
     }
-    
+
     private void ShowEndScreen()
     {
         endScreen.SetActive(true);

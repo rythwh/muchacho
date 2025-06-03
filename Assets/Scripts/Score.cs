@@ -10,6 +10,7 @@ public class Score : MonoBehaviour
     public void Start()
     {
         Events.AddScore += AddScore;
+        AddScore(0);
     }
 
     private void AddScore(int amount)

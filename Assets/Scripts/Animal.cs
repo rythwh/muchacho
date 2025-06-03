@@ -1,22 +1,21 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class Animal : MonoBehaviour
 {
-    private const int ForceMultiplier = 500;
+    private const int ForceMultiplier = 1500;
 
     private Image _image;
     private Rigidbody2D _rigidbody;
-    private Vector3 _position;
-    [SerializeField] private Button button;
+    [SerializeField] private EventTrigger eventTrigger;
 
     public bool IsGood { get; private set; }
 
     public AnimalType Type { get; private set; } = AnimalType.None;
-
-    private UnityEngine.Events.UnityAction _scanAction;
 
     public enum AnimalType
     {
@@ -54,75 +53,63 @@ public class Animal : MonoBehaviour
 
     private void Awake()
     {
-        _scanAction = () => GameManager.Instance.ScanAnimal(this);
-        button.onClick?.AddListener(_scanAction);
         _image = GetComponent<Image>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _position = transform.position;
-        // Reset();
     }
 
-    private void OnDestroy()
+    public void ScanAnimal()
     {
-        button.onClick?.RemoveListener(_scanAction);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            Shoot();
-            Debug.Log($"x {_rigidbody.linearVelocityX}, {_rigidbody.linearVelocityY}");
-        }
-        else if (Input.GetKeyUp(KeyCode.R))
-        {
-            Reset();
-        }
-    }
-
-    private void Shoot()
-    {
-        var force = new Vector2(1.5f, 2.5f) * (ForceMultiplier * Random.Range(1f, 2f));
-        _rigidbody.AddForce(force, ForceMode2D.Impulse);
+        GameManager.Instance.ScanAnimal(this);
     }
 
     private void Shoot(Vector2 direction)
     {
-        var force = direction.normalized * (ForceMultiplier * Random.Range(1f, 2f));
-        _rigidbody.AddForce(force, ForceMode2D.Impulse);
-    }
+        // Scale direction directly with a vertical boost factor
+        Vector2 biasedDirection = Vector2.Lerp(direction, Vector2.up, 0.25f).normalized;
 
-    private void Reset()
-    {
-        transform.position = _position;
-        _rigidbody.linearVelocity = Vector2.zero;
-        _rigidbody.linearDamping = 0.05f;
-        _rigidbody.gravityScale = 250f;
-        Shoot();
+        // Slightly stronger random force range
+        float forceStrength = ForceMultiplier * Random.Range(1.2f, 1.6f);
+
+        Vector2 force = biasedDirection * forceStrength;
+        _rigidbody.AddForce(force, ForceMode2D.Impulse);
     }
 
     public void SpawnFromBottomAndShoot(RectTransform canvasRect)
     {
-        Vector2 canvasSize = canvasRect.sizeDelta;
+        RectTransform rect = GetComponent<RectTransform>();
+        Vector2 canvasSize = canvasRect.rect.size;
 
-        // Random X along bottom
-        var spawnX = Random.Range(0f, canvasSize.x);
-        var spawnY = -100f; // Just below bottom edge
+        // Spawn just below the canvas at a random horizontal position
+        float spawnX = Random.Range(-canvasSize.x / 2f, canvasSize.x / 2f);
+        float spawnY = -canvasSize.y / 2f - 100f;
+        Vector2 spawnPos = new Vector2(spawnX, spawnY);
 
-        var spawnPos = new Vector2(spawnX, spawnY);
-        _position = spawnPos;
+        rect.localPosition = spawnPos;
 
-        var rect = GetComponent<RectTransform>();
-        rect.anchoredPosition = spawnPos;
+        // Target a point above the canvas center
+        Vector2 targetPos = new Vector2(0f, canvasSize.y / 2f + 200f); // Above center
 
-        // Direction toward center of canvas
-        var center = canvasSize / 2f;
-        var direction = (center - spawnPos).normalized;
+        // Direction from spawn to target
+        Vector2 direction = (targetPos - spawnPos).normalized;
 
-        // Slight spread for variety
-        var angleOffset = Random.Range(-15f, 15f);
+        // Add a bit of random angle variation
+        float angleOffset = Random.Range(-10f, 10f);
         direction = Quaternion.Euler(0, 0, angleOffset) * direction;
 
         Shoot(direction);
+    }
+
+    public void Update()
+    {
+        if (transform.position.y < -100)
+        {
+            if (IsGood)
+            {
+                // Events.AddScore(-1);
+                Events.OnLifeLost();
+            }
+            
+            Destroy(gameObject);
+        }
     }
 }
