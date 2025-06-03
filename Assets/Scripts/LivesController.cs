@@ -27,6 +27,7 @@ public class LivesController : MonoBehaviour
     private void OnLifeLost()
     {
         currentLives -= 1;
+        Events.Flash?.Invoke(Color.red);
 
         Image child = livesContainer.GetChild(0).GetComponent<Image>();
 

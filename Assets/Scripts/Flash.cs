@@ -8,10 +8,11 @@ public class Flash : MonoBehaviour
     [SerializeField] private float flashEndDuration = 1f;
     [SerializeField] private Image image;
 
-    private Color flashColor = new Color(1f, 1f, 1f, 0.9f);
+    public static Color FlashColor = new Color(1f, 1f, 1f, 0.9f);
 
     public void Start()
     {
+        DontDestroyOnLoad(gameObject);
         image.color = Color.clear;
         Events.Flash += OnFlash;
     }
@@ -25,11 +26,11 @@ public class Flash : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            OnFlash();
+            OnFlash(FlashColor);
         }
     }
 
-    private async void OnFlash()
+    private async void OnFlash(Color color)
     {
         if (!image)
         {
@@ -37,7 +38,7 @@ public class Flash : MonoBehaviour
         }
 
         // Flash to white instantly
-        image.color = flashColor;
+        image.color = color;
         Events.OnFlashMax?.Invoke();
 
         // Short delay for "flash in"
@@ -45,7 +46,7 @@ public class Flash : MonoBehaviour
 
         // Fade out over time
         float elapsed = 0f;
-        Color startColor = flashColor;
+        Color startColor = color;
 
         while (elapsed < flashEndDuration)
         {

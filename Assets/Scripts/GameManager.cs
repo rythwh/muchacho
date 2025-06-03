@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            Events.Flash?.Invoke();
+            Events.Flash?.Invoke(Flash.FlashColor);
         }
 
         if (!debugRaycast)
