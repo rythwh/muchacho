@@ -156,6 +156,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: jack_body_0
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 382
+        width: 205
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d84ab000fbbfa45a1a7bc85bb1d225b0
+      internalID: -974573272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -172,6 +194,7 @@ TextureImporter:
     nameFileIdTable:
       jack_0: -618900924579114579
       jack_1: 1891998974
+      jack_body_0: -974573272
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

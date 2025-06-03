@@ -30,7 +30,7 @@ public class LivesController : MonoBehaviour
             return;
         }
 
-        child.color = Color.red;
+        child.transform.GetChild(0).gameObject.SetActive(true);
         child.transform.SetAsLastSibling();
 
         if (currentLives <= 0)
