@@ -438,8 +438,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf5c15bb9edbf4eaa95a702ce95b56e4, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   debugRaycast: 1
 --- !u!4 &156909738
 Transform:
@@ -456,6 +456,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &194879765 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5269864932593053154, guid: 32408050ae353427fb174929bb8203ca, type: 3}
+  m_PrefabInstance: {fileID: 2882637561860992837}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &307235669
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,8 +475,6 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 307235670}
-  - component: {fileID: 307235672}
   - component: {fileID: 307235671}
   m_Layer: 5
   m_Name: Flash
@@ -474,11 +483,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!224 &307235670
+--- !u!224 &307235670 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8926144288853288314, guid: eb787723e708141f48d5e5e027fddc07, type: 3}
   m_PrefabInstance: {fileID: 7968032508821982442}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &307235671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307235669}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &330839319 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5817784553059741753, guid: 207742dd34ea1440c96ff3674ca90539, type: 3}
@@ -986,7 +1010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1025060148578392343, guid: 76eb38c51316e45f8ba344ec6e30e699, type: 3}
       propertyPath: 'sprites.Array.data[7]'
-      value:
+      value: 
       objectReference: {fileID: 2865906195106238846, guid: 9a54850ae43144c579604c9601825f2a, type: 3}
     - target: {fileID: 2520101269734431999, guid: 76eb38c51316e45f8ba344ec6e30e699, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1061,9 +1085,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0be7ce1e063c24578b91da041140bad5, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  scoreText: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 194879765}
 --- !u!1001 &2137618954065068975
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1301,6 +1325,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1399260807}
     m_Modifications:
+    - target: {fileID: 2642557312156917381, guid: eb787723e708141f48d5e5e027fddc07, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8390584920642255830, guid: eb787723e708141f48d5e5e027fddc07, type: 3}
       propertyPath: m_Name
       value: Flash
@@ -1394,6 +1422,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 307235671}
   - {fileID: 438463954}
   - {fileID: 32159814}
   - {fileID: 1399260807}

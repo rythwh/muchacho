@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Destroying animal {animal.Type}!");
         if (animal.IsGood)
         {
-            // TODO: score go up
+            Events.AddScore(1);
         }
         else
         {
@@ -36,6 +36,11 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        if (Input.GetMouseButtonUp(0))
+        {
+            Events.Flash?.Invoke();
+        }
+
         if (!debugRaycast)
             return;
         
