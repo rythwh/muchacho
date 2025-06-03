@@ -438,8 +438,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf5c15bb9edbf4eaa95a702ce95b56e4, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   debugRaycast: 1
 --- !u!4 &156909738
 Transform:
@@ -465,8 +465,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &307235669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1025060148578392343, guid: 76eb38c51316e45f8ba344ec6e30e699, type: 3}
       propertyPath: 'sprites.Array.data[7]'
-      value:
+      value: 
       objectReference: {fileID: 2865906195106238846, guid: 9a54850ae43144c579604c9601825f2a, type: 3}
     - target: {fileID: 2520101269734431999, guid: 76eb38c51316e45f8ba344ec6e30e699, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1085,8 +1085,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0be7ce1e063c24578b91da041140bad5, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   scoreText: {fileID: 194879765}
 --- !u!1001 &2137618954065068975
 PrefabInstance:
