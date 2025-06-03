@@ -19,6 +19,11 @@ public class LivesController : MonoBehaviour
         Events.OnLifeLost += OnLifeLost;
     }
 
+    private void OnDestroy()
+    {
+        Events.OnLifeLost -= OnLifeLost;
+    }
+
     private void OnLifeLost()
     {
         currentLives -= 1;
