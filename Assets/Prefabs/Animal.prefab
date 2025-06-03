@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8655211094641322879}
   - component: {fileID: 7176022441077943898}
   - component: {fileID: 3221664440073894057}
-  - component: {fileID: 9181872102935892273}
   m_Layer: 5
   m_Name: Animal
   m_TagString: Untagged
@@ -118,15 +117,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &9181872102935892273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246817072988247463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e28ca32b0571c4542b0ecf17bf7bca4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
