@@ -3,17 +3,20 @@ using UnityEngine.UI;
 
 public class Animal : MonoBehaviour
 {
+    [HideInInspector]
     public Image image;
     private const int ForceMultiplier = 500;
     
     private Rigidbody2D _rigidbody;
     private Vector3 _position;
+    private Button _button;
     
     private void Awake()
     {
         image = GetComponent<Image>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _position = transform.position;
+        _button = GetComponentInChildren<Button>();
         Reset();
     }
     
