@@ -255,7 +255,7 @@ MonoBehaviour:
   - {fileID: -7503698964060047574, guid: 5f039b31a393a4d8585a27c383c0db3b, type: 3}
   - {fileID: -5785208501100047508, guid: 19c020c955a11474cb6932ab709376fc, type: 3}
   - {fileID: 4047312526738855131, guid: 5b8848b074285499ba141c43060813da, type: 3}
-  bounceArea: {fileID: 0}
+  bounceArea: {fileID: 1399260807}
 --- !u!222 &330839321
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -435,7 +435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -171}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &473419707
