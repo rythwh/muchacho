@@ -38,7 +38,7 @@ public class Flash : MonoBehaviour
 
         // Fade out over time
         float elapsed = 0f;
-        Color startColor = image.color;
+        Color startColor = Color.white;
 
         while (elapsed < flashEndDuration)
         {
