@@ -3,22 +3,26 @@ using UnityEngine;
 
 public class QRSpawner : MonoBehaviour
 {
+    [SerializeField] private Animal animalPrefab;
     [SerializeField] private List<Sprite> goodSprites;
     [SerializeField] private List<Sprite> badSprites;
     
     private SpriteRenderer _spriteRenderer;
+    private List<Animal> _animals = new();
+    
     void Awake()
     {
-        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.anyKeyDown)
         {
+            // instantiate animal prefab
+            var animal = Instantiate(animalPrefab, transform);
+            _animals.Add(animal);
             var target = Random.Range(0, 2) == 0 ? goodSprites : badSprites;
-            _spriteRenderer.sprite = target[Random.Range(0, target.Count)];
+            animal.image.sprite = target[Random.Range(0, target.Count)];
         }
     }
 }
