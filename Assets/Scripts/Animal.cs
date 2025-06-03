@@ -97,9 +97,4 @@ public class Animal : MonoBehaviour
 
         Shoot(direction);
     }
-    
-    public void Scream()
-    {
-        Debug.LogWarning("AAAAAAH");
-    }
 }
