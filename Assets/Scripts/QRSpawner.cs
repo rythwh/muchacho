@@ -12,7 +12,8 @@ public class QRSpawner : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private List<Animal> _animals = new();
     private RectTransform _canvasRect;
-    private const float InitialInterval = 3f;
+    private const float InitialInterval = 2f;
+    private const float SpeedUpAmount = 0.1f;
     private float _interval;
 
     private void Awake()
@@ -28,7 +29,7 @@ public class QRSpawner : MonoBehaviour
     private void SpeedUp() => SpeedUp(0);
     private void SpeedUp(int _)
     {
-        _interval *= 0.8f;
+        _interval = Math.Max(0.5f, _interval - SpeedUpAmount);
     }
 
     private void ResetInterval()
@@ -40,7 +41,8 @@ public class QRSpawner : MonoBehaviour
     {
         var animal = Instantiate(animalPrefab, transform);
         _animals.Add(animal);
-        var target = Random.Range(0, 2) == 0 ? animal.GoodAnimals : animal.BadAnimals ;
+        // 80% good
+        var target = Random.Range(0, 11) <= 8 ? animal.GoodAnimals : animal.BadAnimals ;
         var type = target.GetRandomElement();
         animal.Initialize(type, SpriteFromType(type));
         animal.SpawnFromBottomAndShoot(_canvasRect);
@@ -64,6 +66,7 @@ public class QRSpawner : MonoBehaviour
         while (true)
         {
             SpawnAnimal();
+            Debug.Log($"Interval: {_interval}");
             yield return new WaitForSeconds(_interval);
         }
     }
