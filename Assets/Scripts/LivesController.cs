@@ -21,7 +21,7 @@ public class LivesController : MonoBehaviour
 
     private void OnDestroy()
     {
-        Events.OnLifeLost -= OnLifeLost;
+        Events.OnGoodAnimalDied -= OnLifeLost;
     }
 
     private void OnLifeLost()
