@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -11,10 +12,12 @@ public class QRSpawner : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private List<Animal> _animals = new();
     private RectTransform _canvasRect;
+    private Coroutine _intervalRoutine;
 
     private void Awake()
     {
         _canvasRect = GetComponentInParent<RectTransform>();
+        _intervalRoutine = StartCoroutine(CallEveryInterval());
     }
 
     void Update()
@@ -45,4 +48,12 @@ public class QRSpawner : MonoBehaviour
         
         throw new Exception($"Couldn't find sprite for type {typeString}");
     }
-}
+    
+    private IEnumerator CallEveryInterval()
+    {
+        while (true)
+        {
+            SpawnAnimal();
+            yield return new WaitForSeconds(2);
+        }
+    }}
