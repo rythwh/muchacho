@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -9,13 +10,11 @@ public class Animal : MonoBehaviour
 
     private Image _image;
     private Rigidbody2D _rigidbody;
-    [SerializeField] private Button button;
+    [SerializeField] private EventTrigger eventTrigger;
 
     public bool IsGood { get; private set; }
 
     public AnimalType Type { get; private set; } = AnimalType.None;
-
-    private UnityEngine.Events.UnityAction _scanAction;
 
     public enum AnimalType
     {
@@ -53,15 +52,13 @@ public class Animal : MonoBehaviour
 
     private void Awake()
     {
-        _scanAction = () => GameManager.Instance.ScanAnimal(this);
-        button.onClick?.AddListener(_scanAction);
         _image = GetComponent<Image>();
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    private void OnDestroy()
+    public void ScanAnimal()
     {
-        button.onClick?.RemoveListener(_scanAction);
+        GameManager.Instance.ScanAnimal(this);
     }
 
     private void Shoot(Vector2 direction)
